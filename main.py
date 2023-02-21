@@ -1,5 +1,4 @@
 from ics import Calendar
-from ics.grammar.parse import ContentLine
 
 from bd2.generate_events import generate_events_bd2
 from bss.generate_events import generate_events_bss
