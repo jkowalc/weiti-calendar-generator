@@ -1,8 +1,12 @@
 from ics import Calendar
 from ics.grammar.parse import ContentLine
 
+from bd2.generate_events import generate_events_bd2
 from bss.generate_events import generate_events_bss
+from skps.generate_events import generate_events_skps
+from swo.generate_events import generate_events_swo
 from wmm.generate_events import generate_events_wmm
+from wsyz.generate_events import generate_events_wsyz
 
 
 def main():
@@ -17,6 +21,10 @@ def main():
     while wmm_group not in ['101', '102', '103', '104', '105', '106', '107', '108', 'brak']:
         wmm_group = input('Podaj grupę WMM: ')
     cal.events = cal.events.union(generate_events_wmm(wmm_group))
+    cal.events = cal.events.union(generate_events_wsyz())
+    cal.events = cal.events.union(generate_events_swo())
+    cal.events = cal.events.union(generate_events_skps())
+    cal.events = cal.events.union(generate_events_bd2())
     with open('out.ics', 'w') as fp:
         fp.writelines(cal.serialize_iter())
 
