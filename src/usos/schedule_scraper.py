@@ -4,6 +4,8 @@ from bs4 import BeautifulSoup, Tag
 import requests
 import pytz
 
+from src.usos.tools import check_if_usos_available
+
 
 def time_data_to_datetime(time_data):
     date_split = time_data[0].split('-')
@@ -23,7 +25,11 @@ def time_data_to_datetime(time_data):
 def scrape_schedule(url):
     events = []
     soup = BeautifulSoup(requests.get(url).text, 'html.parser')
-    tbody = soup.find('table', id='lista_dat_spotkan').find('tbody')
+    check_if_usos_available(soup)
+    lista_dat_spotkan = soup.find('table', id='lista_dat_spotkan')
+    if not lista_dat_spotkan:
+        return events
+    tbody = lista_dat_spotkan.find('tbody')
     for row in tbody.find_all('tr'):
         time: Tag = row.find('td')
         time_data = []
