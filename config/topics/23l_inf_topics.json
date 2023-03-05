@@ -1,0 +1,146 @@
+{
+  "semester": "23L",
+  "SWO-A": {
+    "Wykład": [
+      "Organizacja, podstawy (Nowak)",
+      "Styl kodowania (Grochowski)",
+      "Wzorce projektowe 1 (Nowak)",
+      "Wzorce projektowe 2 (Nowak), Git (Wysota)",
+      "UML (Grochowski)",
+      "Cykl wytwarzania oprogramowania 1 (Grochowski)",
+      "Cykl wytwarzania oprogramowania 2 (Grochowski)",
+      "Ocena jakości kodu i testów (Grochowski)",
+      "Kolokwium nr 1, Wzorce projektowe 3 (Nowak)",
+      "Monitorowanie i analiza aplikacji (Grochowski)",
+      "Refaktoring i praca z kodem zastanym (Grochowski)",
+      "Współbieżne wzorce projektowe 1 (Nowak)",
+      "Współbieżne wzorce projektowe 2 (Nowak)",
+      "Kolokwium nr 2",
+      "Zasowy internetowe i standardy (Nowak)"
+    ],
+    "Lab": [
+      "Edytor, Git, Rewizja kodu (Wysota)",
+      "Środowisko, Potok CI/CD, testy (Grochowski)",
+      "Monitorowanie, debuggowanie, profilowanie (Chwesiuk)",
+      "Praca z kodem zastanym, refaktoring (Radlak)",
+    ]
+  },
+  "BD2-C": {
+  },
+  "BSS-B": {
+    "Wykład": [
+      "Wprowadzenie",
+      "Szyfry",
+      "Funkcje skrótu",
+      "PKI",
+      "Zagrożenia sieciowe",
+      "Systemy bezpieczeństwa",
+      "Malware 1",
+      "Malware 2",
+      "Aplikacje webowe",
+      "Systemy operacyjne i VPN",
+      "Systemy ICS",
+      "Systemy HoneyPot",
+      "Polityka bezpieczeństwa"
+    ],
+    "Lab": [
+      "Algorytmy szyfrowania",
+      "OpenSSL",
+      "Stunnel",
+      "GPG",
+      "Systemy IDS",
+      "Bezpieczeństwo aplikacji",
+      "Bezpieczeństwo aplikacji WWW"
+    ]
+  },
+  "SKPS-A": {
+    "Wykład": [
+      "Wprowadzenie (Winiarski)",
+      "Środowiska do zastosowań wbudowanych i sterowania (Zabołotny)",
+      "Zaawansowane użycie BR, Wprowadzenie do OpenWRT (Zabołotny)",
+      "Realizacja komunikacji między procesowej (Zabołotny)",
+      "QEMU, Komunikacja z urządzeniami I/O (Zabołotny)",
+      "Techniki przystowania Linuxa do czasu rzeczywistego (Zabołotny)",
+      "Kolokwium nr 1",
+      "SoC i MPSoC (Zabołotny)",
+      "Sprzęt z naciskiem na sterowniki (Winiarski)",
+      "Organizacja oprogramowania bez systemu operacyjnego (Winiarski)",
+      "Przykładowy system z mikrokontrolerem (Winiarski)",
+      "Szeregowanie zadań i aspekty bezpieczeństwa (Winiarski)",
+      "Sieci przemysłowe (Winiarski)",
+      "Kolokwium nr 2",
+      "Kolokwium poprawkowe"
+    ],
+    "Lab": [
+      "Zapoznanie z Buildroot (BR)",
+      "Zapoznanie z OpenWRT",
+      "Kontynuacja OpenWRT",
+      "Wieloprocesowe przetwarzanie danych",
+      "Projekt cz. 1",
+      "Projekt cz. 2"
+    ]
+  },
+  "WSYZ-A": {
+    "Wykład": [
+      "Organizacja, systemy informacyjne",
+      "Architektury systemów i inne aspekty 1",
+      "Architektury systemów i inne aspekty 2",
+      "Modelowanie procesów biznesowych",
+      "Przegląd modeli analitycznych",
+      "Wybrane modele optymalizacyjne 1",
+      "Wybrane modele optymalizacyjne 2",
+      "Kolokwium nr 1",
+      "Harmonogramowanie i szeregowanie zadań 1",
+      "Harmonogramowanie i szeregowanie zadań 2",
+      "Planowanie produkcji i usług",
+      "Metody zarządzania dystrybucją i lokalizacją",
+      "Systemy ERP z przykładami",
+      "Systemy Business Intelligence i Big Data",
+      "Kolokwium nr 2"
+    ],
+    "Lab": [
+      "Procesy biznesowe - BPMN",
+      "Narzędzia do modelowania i optymalizacji",
+      "Metody harmonogramowania zadań",
+      "Metody planowania produkcji i usług"
+    ]
+  },
+  "WMM-A": {
+    "Wykład": [
+      "Sygnały cz. 1",
+      "Sygnały cz. 2",
+      "Sygnały cz. 3",
+      "Sygnały cz. 4",
+      "Sygnały cz. 5",
+      "Sygnały cz. 6",
+      "Wizja cz. 1",
+      "Wizja cz. 2",
+      "Wizja cz. 3",
+      "Wizja cz. 4",
+      "Wizja cz. 5",
+      "Wizja cz. 6",
+      "Wizja cz. 7",
+      "Wizja cz. 8",
+      "Dźwięk cz. 1",
+      "Dźwięk cz. 2",
+      "Dźwięk cz. 3",
+      "Dźwięk cz. 4",
+      "Dźwięk cz. 5",
+      "Dźwięk cz. 6",
+      "Dźwięk cz. 7",
+      "Grafika cz. 1",
+      "Grafika cz. 2",
+      "Grafika cz. 3"
+    ],
+    "Lab": [
+      "Analiza widmowa sygnałów dyskretnych",
+      "Filtracja obrazu cyfrowego",
+      "Statystyczne właściwości obrazów",
+      "Śledzenie obiektów",
+      "Filtracja, efekty dźwiękowe",
+      "Strumieniowanie danych multimedialnych",
+      "Sygnał mowy",
+      "Grafika komputerowa"
+    ]
+  }
+}
