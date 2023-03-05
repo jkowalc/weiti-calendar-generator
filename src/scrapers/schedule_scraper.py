@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup, Tag
 import requests
 import pytz
 
-from src.usos.tools import check_if_usos_available
+from src.scrapers.tools import check_if_usos_available
 
 
 def time_data_to_datetime(time_data):

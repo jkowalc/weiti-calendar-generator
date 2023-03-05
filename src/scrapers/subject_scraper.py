@@ -1,8 +1,8 @@
 import requests
 from bs4 import BeautifulSoup, Tag
 
-from src.usos.tools import check_if_usos_available, deconstruct_table
-from src.usos.schedule_scraper import scrape_schedule
+from src.scrapers.tools import check_if_usos_available, deconstruct_table
+from src.scrapers.schedule_scraper import scrape_schedule
 from src.model.semester import Semester
 from src.model.subject_info import SubjectInfo, ClassType
 
@@ -68,3 +68,4 @@ def scrape_subject(url, semester: Semester) -> SubjectInfo:
 if __name__ == '__main__':
     subj = scrape_subject('https://usosweb.usos.pw.edu.pl/kontroler.php?_action=katalog2/przedmioty/pokazPrzedmiot&prz_kod=103A-INxxx-ISP-WSYZ', Semester('23L'))
     print(subj)
+    print(subj.get_version())
