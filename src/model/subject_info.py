@@ -2,7 +2,7 @@ import enum
 from dataclasses import dataclass
 from typing import Any
 
-from src.usos.tools import schedule_to_str
+from src.scrapers.tools import schedule_to_str
 
 
 class ClassType(enum.Enum):
@@ -10,7 +10,7 @@ class ClassType(enum.Enum):
     LABORATORIUM = "Lab"
     PROJEKT = "Proj"
     SEMINARIUM = "Sem"
-    WYKLAD = "Wyk"
+    WYKLAD = "Wykład"
 
 @dataclass
 class SubjectInfo:
@@ -30,3 +30,7 @@ class SubjectInfo:
             else:
                 desc += schedule_to_str(self.classes_schedule[type])
         return desc
+
+    def get_version(self):
+        return self.full_code.split('-')[0][3]
+
