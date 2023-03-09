@@ -2,6 +2,8 @@ from dataclasses import dataclass
 
 
 @dataclass
-class ModelPlanInfo:
+class ModelPlan:
     semester: int
     course: str
+    subjects: list
+
