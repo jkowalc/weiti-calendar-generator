@@ -29,8 +29,9 @@ def load_model_plan(semester: int, course, calendar_semester: CalendarSemester) 
                 subject_parts[class_type] = filtered_groups_info
         if subject_parts:
             subjects.append(Subject(full_code, simple_code, name, subject_parts))
+            print(".", end="")
     return ModelPlan(semester, course, calendar_semester, subjects)
 
 
 if __name__ == '__main__':
-    print(load_model_plan(1, 'IN', CalendarSemester('23L')))
+    print(load_model_plan(4, 'Informatyka', CalendarSemester('23L')))
