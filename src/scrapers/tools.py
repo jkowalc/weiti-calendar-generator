@@ -22,3 +22,4 @@ def schedule_to_str(schedule):
     for day in schedule:
         desc += f" Start: {day[0]} | Koniec: {day[1]} | Miejsce: {day[2]}\n"
     return desc
+
