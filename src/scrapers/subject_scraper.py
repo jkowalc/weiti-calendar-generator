@@ -1,11 +1,11 @@
 from bs4 import BeautifulSoup, Tag
 
 from src.scrapers.tools import check_if_usos_available, deconstruct_table
-from src.model.semester import Semester
+from src.model.calendar_semester import CalendarSemester
 from src.model.subject import ClassType
 
 
-def scrape_subject(text, semester: Semester):
+def scrape_subject(text, semester: CalendarSemester):
     soup = BeautifulSoup(text, 'html.parser')
     check_if_usos_available(soup)
     description_table = soup.find('usos-frame', {'style': "clear: right; width: fit-content;"}).find('table').find('tbody')
@@ -42,4 +42,4 @@ def scrape_subject(text, semester: Semester):
 if __name__ == '__main__':
     import requests
     text = requests.get('https://usosweb.usos.pw.edu.pl/kontroler.php?_action=katalog2/przedmioty/pokazPrzedmiot&prz_kod=103A-INxxx-ISP-WSYZ').text
-    print(scrape_subject(text, Semester('23L')))
+    print(scrape_subject(text, CalendarSemester('23L')))

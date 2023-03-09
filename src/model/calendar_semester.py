@@ -3,7 +3,7 @@ from dataclasses import dataclass
 
 
 @dataclass
-class Semester:
+class CalendarSemester:
     code: str
 
     def get_full_name(self):
@@ -28,6 +28,6 @@ class Semester:
         month = now.month
         day = now.day
         if month < 2 or (month == 2 and day < 18):
-            return Semester(str(year - 2000 - 1) + 'Z')
+            return CalendarSemester(str(year - 2000 - 1) + 'Z')
         else:
-            return Semester(str(year - 2000) + 'L')
+            return CalendarSemester(str(year - 2000) + 'L')
