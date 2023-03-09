@@ -10,6 +10,14 @@ class ClassType(enum.Enum):
     SEMINARIUM = "Sem"
     WYKLAD = "Wykład"
 
+
+def schedule_to_str(schedule):
+    desc = ''
+    for day in schedule:
+        desc += f" Start: {day[0]} | Koniec: {day[1]} | Miejsce: {day[2]}\n"
+    return desc
+
+
 @dataclass
 class Subject:
     full_code: str
@@ -17,16 +25,11 @@ class Subject:
     name: str
     classes_schedule: Dict[ClassType, Dict[str, list[tuple]]]
 
-    # def __str__(self):
-    #     desc = f"{self.name} ({self.simple_code}) ({self.full_code})\n"
-    #     for type in self.classes_schedule:
-    #         desc += f"-------------- {type.value} --------------\n"
-    #         if isinstance(self.classes_schedule[type], dict):
-    #             for group in self.classes_schedule[type]:
-    #                 desc += f"Grupa {group}:\n"
-    #                 desc += schedule_to_str(self.classes_schedule[type][group])
-    #         else:
-    #             desc += schedule_to_str(self.classes_schedule[type])
-    #     return desc
-
-
+    def __str__(self):
+        desc = f"{self.name} ({self.simple_code}) ({self.full_code})\n"
+        for type in self.classes_schedule:
+            desc += f"------------------------ {type.value} ------------------------\n"
+            for group in self.classes_schedule[type]:
+                desc += f"Grupa {group}:\n"
+                desc += schedule_to_str(self.classes_schedule[type][group])
+        return desc

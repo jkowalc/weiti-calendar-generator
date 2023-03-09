@@ -15,4 +15,4 @@ def map_multiple_urls(urls, func, *args, **kwargs):
 
 
 def get_model_plan_url(course):
-    ...
+    return 'https://google.pl'
