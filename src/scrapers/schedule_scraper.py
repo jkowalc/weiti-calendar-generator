@@ -1,7 +1,6 @@
 from datetime import datetime
 
 from bs4 import BeautifulSoup, Tag
-import requests
 import pytz
 
 from src.scrapers.tools import check_if_usos_available
@@ -22,9 +21,9 @@ def time_data_to_datetime(time_data):
         datetime(year, month, day, hour_end, minute_end, tzinfo=pytz.timezone('Europe/Warsaw'))
 
 
-def scrape_schedule(url):
+def scrape_schedule(text):
     events = []
-    soup = BeautifulSoup(requests.get(url).text, 'html.parser')
+    soup = BeautifulSoup(text, 'html.parser')
     check_if_usos_available(soup)
     lista_dat_spotkan = soup.find('table', id='lista_dat_spotkan')
     if not lista_dat_spotkan:
@@ -43,7 +42,7 @@ def scrape_schedule(url):
     return events
 
 
-if __name__ == '__main__':
-    events = scrape_schedule('https://usosweb.usos.pw.edu.pl/kontroler.php?_action=katalog2/przedmioty/pokazZajecia&zaj_cyk_id=449968&gr_nr=1')
-    for event in events:
-        print(event)
+if __name__ == "__main__":
+    import requests
+    text = requests.get('https://usosweb.usos.pw.edu.pl/kontroler.php?_action=katalog2/przedmioty/pokazZajecia&zaj_cyk_id=449897&gr_nr=101').text
+    print(scrape_schedule(text))
