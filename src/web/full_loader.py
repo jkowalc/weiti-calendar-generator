@@ -36,4 +36,5 @@ def load_model_plan(semester: int, course: Course, calendar_semester: CalendarSe
 
 
 if __name__ == '__main__':
-    print(load_model_plan(4, Course.INF, CalendarSemester('23L')))
+    model_plan = load_model_plan(4, Course.INF, CalendarSemester('23L'))
+    pass

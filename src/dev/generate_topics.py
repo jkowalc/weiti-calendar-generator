@@ -2,12 +2,15 @@
 def generate_topics_for_subject(subject):
     return_dict = {}
     for class_type in subject.classes_schedule:
-        if isinstance(subject.classes_schedule[class_type], dict):
-            return_dict[class_type.value] = {}
+        if len(subject.classes_schedule[class_type]) > 1:
+            return_dict[class_type.name] = {}
             for group in subject.classes_schedule[class_type]:
-                return_dict[class_type.value][group] = ["" * len(subject.classes_schedule[class_type][group])]
+                topic_count = len(subject.classes_schedule[class_type][group])
+                return_dict[class_type.name][group] = [[""] * topic_count]
         else:
-            return_dict[class_type.value] = ["" * len(subject.classes_schedule[class_type])]
+            key = list(subject.classes_schedule[class_type].keys())[0]
+            topic_count = len(subject.classes_schedule[class_type][key])
+            return_dict[class_type.name] = [[""] * topic_count]
     return return_dict
 
 
