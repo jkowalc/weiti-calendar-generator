@@ -1,17 +1,10 @@
 from bs4 import BeautifulSoup
 import re
 
-COURSES = {
-    'Informatyka': 'EIT',
-    'Automatyka i robotyka': 'AIR',
-    'Cyberbezpieczeństwo': 'CYB',
-    'Elektronika': 'EL',
-    'Telekomunikacja': 'TL',
-    'Inżynieria internetu rzeczy': 'CYB',
-}
+from src.model.courses import Course
 
 
-def scrape_model_plan(text, course, semester: int):
+def scrape_model_plan(text, course: Course, semester: int):
     """
     :param text: html text of website
     :param course: course name
@@ -19,7 +12,7 @@ def scrape_model_plan(text, course, semester: int):
     :return: list of subject urls
     """
     subjects = BeautifulSoup(text, 'html.parser') \
-        .find(attrs={'summary': COURSES[course]}) \
+        .find(attrs={'summary': course.get_summary_attr()}) \
         .findAll(lambda tag: tag.parent.name != 'i', href=lambda url: url and re.compile("pokazPrzedmiot").search(url))
 
     return [
@@ -30,4 +23,4 @@ def scrape_model_plan(text, course, semester: int):
 
 if __name__ == '__main__':
     with open("../../stubs/it_model.html", "r") as fh:
-        print(list(scrape_model_plan(fh, 'Informatyka', 1)))
+        print(list(scrape_model_plan(fh, Course.INF, 1)))
