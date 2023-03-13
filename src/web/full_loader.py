@@ -1,21 +1,22 @@
 from src.model.calendar_semester import CalendarSemester
+from src.model.courses import Course
 from src.model.model_plan import ModelPlan
 from src.model.subject import Subject
 from src.scrapers.model_plan_scraper import scrape_model_plan
 from src.scrapers.schedule_scraper import scrape_schedule
 from src.scrapers.subject_part_scraper import scrape_subject_part
 from src.scrapers.subject_scraper import scrape_subject
-from src.web.tools import get_model_plan_url, map_multiple_urls, map_single_url
+from src.web.tools import map_multiple_urls, map_single_url
 
 
-def load_model_plan(semester: int, course, calendar_semester: CalendarSemester) -> ModelPlan:
+def load_model_plan(semester: int, course: Course, calendar_semester: CalendarSemester) -> ModelPlan:
     """
     :param semester: semester number
     :param course: course name
     :param calendar_semester: calendar semester
     :return: list of subject urls
     """
-    plan_url = get_model_plan_url(course)
+    plan_url = course.get_url()
     subjects_urls = map_single_url(plan_url, scrape_model_plan, course, semester)
     subjects_info = map_multiple_urls(subjects_urls, scrape_subject, calendar_semester)
     subjects = []
@@ -35,4 +36,4 @@ def load_model_plan(semester: int, course, calendar_semester: CalendarSemester) 
 
 
 if __name__ == '__main__':
-    print(load_model_plan(4, 'Informatyka', CalendarSemester('23L')))
+    print(load_model_plan(4, Course.INF, CalendarSemester('23L')))
