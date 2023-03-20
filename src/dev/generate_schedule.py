@@ -1,11 +1,12 @@
 from typing import List
 
+from src.additional_info.tools import parse_date
 from src.model.calendar_semester import CalendarSemester
 from src.model.subject import Subject
 
 
 def parse_schedule(schedule: list):
-    return [f"{date[0].day:02}-{date[0].month:02}" for date in schedule]
+    return [parse_date(date) for date in schedule]
 
 
 def generate_schedule_for_subject(subject: Subject):
