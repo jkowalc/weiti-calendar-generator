@@ -15,9 +15,9 @@ def generate_config():
     schedule = generate_schedule(calendar_semester, model_plan.subjects)
     topics = generate_topics(calendar_semester, model_plan.subjects)
     file_prefix = f"{calendar_semester.code}_{model_plan.course.value}_{model_plan.semester}"
-    with open(f"../../config/topics/{file_prefix}_topics.json", "w") as f:
+    with open(f"../../config/topics/{file_prefix}_topics_default.json", "w") as f:
         json.dump(topics, f, indent=4)
-    with open(f"../../config/schedules/{file_prefix}_schedule.json", "w") as f:
+    with open(f"../../config/schedules/{file_prefix}_schedule_default.json", "w") as f:
         json.dump(schedule, f, indent=4)
     print("\nPlan zajęć i tematy zostały zapisane")
 

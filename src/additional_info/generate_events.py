@@ -13,18 +13,27 @@ def is_exam(topic):
     return False
 
 
+def get_topic(topics, class_type, group, i):
+    try:
+        topics_per_class = topics[class_type.value]
+        if isinstance(topics_per_class, list):
+            return topics_per_class[i]
+        else:
+            return topics_per_class[group][i]
+    except KeyError:
+        return None
+
+
 def generate_events(calendar_semester: CalendarSemester, subject: Subject, topics, user_choice):
     topics = topics.get(subject.full_code)
     events = set()
     for class_type in subject.classes_schedule:
-        topics_per_class = topics.get(class_type.name) if topics is not None else None
         choice = user_choice.get(class_type)
         if choice is None:
             continue
         standard_count, exam_count = 0, 0
         for i, schedule_item in enumerate(subject.classes_schedule[class_type][choice]):
-            topics_per_group = topics_per_class.get(choice) if topics_per_class is not None else None
-            topic: str = topics_per_group.get(i+1) if topics_per_group is not None else None
+            topic = get_topic(topics, class_type, choice, i) if topics is not None else None
             event = Event()
             name = f"{subject.simple_code}"
             if topic is not None and is_exam(topic):

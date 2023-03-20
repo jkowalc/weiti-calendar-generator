@@ -3,12 +3,14 @@ import os
 
 from src.model.calendar_semester import CalendarSemester
 
+ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+
 
 def load_thing(thing, semester: CalendarSemester):
     things = {}
-    files = os.listdir(f"../../config/{thing}/")
+    files = os.listdir(f"{ROOT_DIR}/../../config/{thing}/")
     for file in files:
-        with open(f"../../config/{thing}/{file}", "r") as f:
+        with open(f"{ROOT_DIR}/../../config/{thing}/{file}", "r") as f:
             try:
                 things_as_json: dict = json.load(f)
             except json.JSONDecodeError:
