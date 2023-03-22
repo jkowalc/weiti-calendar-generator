@@ -8,6 +8,7 @@ from src.ui.select_model_plan import select_model_plan
 from src.ui.select_new_subject import select_new_subject
 from src.ui.select_semester import select_calendar_semester
 from src.web.full_loader import load_model_plan
+from src.web.subject_loader import load_subject
 
 
 def main():
@@ -30,7 +31,8 @@ def main():
         if inp == 'n':
             break
         elif inp == 'y':
-            subject = select_new_subject()
+            subject_url = select_new_subject()
+            subject = load_subject(subject_url, calendar_semester)
             filter_schedules_for_subject(subject, whitelists)
             user_choice = select_group_choice(subject)
             cal.events = cal.events.union(generate_events(calendar_semester, subject, topics, user_choice))

@@ -8,13 +8,38 @@ def filter_schedule(schedule: list, whitelist: list):
     return [item for item in schedule if parse_schedule_item(item) in whitelist]
 
 
+def group_translation(classes_schedule, translation_dict):
+    new_classes_schedule = {}
+    for new_group in translation_dict:
+        if translation_dict[new_group]:
+            new_classes_schedule[new_group] = classes_schedule[translation_dict[new_group]]
+        else:
+            new_classes_schedule[new_group] = []
+    return new_classes_schedule
+
+
+def filter_conflicts(schedule: list):
+    dates = set()
+    new_schedule = []
+    for item in schedule:
+        if parse_schedule_item(item) in dates:
+            continue
+        dates.add(parse_schedule_item(item))
+        new_schedule.append(item)
+    return new_schedule
+
+
 def filter_schedules_for_subject(subject: Subject, whitelists: dict):
     whitelists_for_subject = whitelists.get(subject.full_code)
     if whitelists_for_subject is None:
         return
     for class_type in subject.classes_schedule:
-        if whitelists_for_subject.get(class_type.name) is None:
+        whitelists_for_class_type = whitelists_for_subject.get(class_type.name)
+        if whitelists_for_class_type is None:
             continue
+        if isinstance(whitelists_for_class_type, dict) and "group_translation" in whitelists_for_class_type:
+            subject.classes_schedule[class_type] = group_translation(subject.classes_schedule[class_type], whitelists_for_class_type["group_translation"])
+            del whitelists_for_class_type["group_translation"]
         if len(subject.classes_schedule[class_type]) > 1:
             for group in subject.classes_schedule[class_type]:
                 whitelist = whitelists_for_subject[class_type.name].get(group)
