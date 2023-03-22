@@ -31,7 +31,7 @@ def scrape_subject(text, semester: CalendarSemester):
         if title == semester.get_full_name():
             deconstructed: Tag = deconstruct_table(sem.find('table'))
             for type in deconstructed['Typ zajęć:'].find_all('div', {'style': 'margin: 5px 0;'}):
-                type_text = type.text.split(',')[0].strip().upper().replace('Ł', 'L')
+                type_text = type.text.split(',')[0].strip().upper().replace('Ł', 'L').replace('Ć', 'C').replace('Ś', 'S').replace('Ż', 'Z').replace('Ź', 'Z')
                 type_obj = ClassType[type_text]
                 url = type.find('a')['href']
                 classes_schedule[type_obj] = url
@@ -43,3 +43,4 @@ if __name__ == '__main__':
     import requests
     text = requests.get('https://usosweb.usos.pw.edu.pl/kontroler.php?_action=katalog2/przedmioty/pokazPrzedmiot&prz_kod=103A-INxxx-ISP-WSYZ').text
     print(scrape_subject(text, CalendarSemester('23L')))
+
