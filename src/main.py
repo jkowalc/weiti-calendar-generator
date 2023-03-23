@@ -36,7 +36,7 @@ def main():
             filter_schedules_for_subject(subject, whitelists)
             user_choice = select_group_choice(subject)
             cal.events = cal.events.union(generate_events(calendar_semester, subject, topics, user_choice))
-    with open('../out.ics', 'w') as fp:
+    with open('../calendar.ics', 'w') as fp:
         fp.writelines(cal.serialize_iter())
     pass
 
