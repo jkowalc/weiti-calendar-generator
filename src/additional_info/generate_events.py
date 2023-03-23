@@ -52,7 +52,7 @@ def generate_events(calendar_semester: CalendarSemester, subject: Subject, topic
                 name += f" {class_type.value} {standard_count+1}"
                 standard_count += 1
             event.name = name
-            event.uid = f"{calendar_semester.code}-{subject.full_code}-{class_type.value}-{i+1}"
+            event.uid = f"{calendar_semester.code}-{subject.full_code}-{class_type.name}-{i+1}"
             event.begin = schedule_item[0]
             event.end = schedule_item[1]
             event.description = schedule_item[2]
