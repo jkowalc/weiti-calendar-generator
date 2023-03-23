@@ -27,7 +27,7 @@ def main():
             user_choice = select_group_choice(subject)
             cal.events = cal.events.union(generate_events(calendar_semester, subject, topics, user_choice))
     while True:
-        inp = input("Czy chcesz dodać przedmiot? (y/n): ").strip()
+        inp = input("Czy chcesz dodać kolejny przedmiot? (y/n): ").strip()
         if inp == 'n':
             break
         elif inp == 'y':
