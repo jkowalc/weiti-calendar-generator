@@ -38,7 +38,7 @@ def scrape_subject(text, semester: CalendarSemester):
                 url = type.find('a')['href']
                 classes_schedule[type_obj] = url
             return full_code, simple_code, name, classes_schedule
-    raise Exception('Semestr nie został znaleziony w bazie danych USOS')
+    raise RuntimeError('Semestr nie został znaleziony w bazie danych USOS')
 
 
 if __name__ == '__main__':

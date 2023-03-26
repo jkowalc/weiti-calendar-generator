@@ -45,4 +45,4 @@ if __name__ == '__main__':
     try:
         main()
     except RuntimeError as e:
-        print("Wystąpił bład: ", e)
+        print(f"Wystąpił bład: {e}")
