@@ -3,7 +3,7 @@ from datetime import datetime
 from bs4 import BeautifulSoup, Tag
 import pytz
 
-from src.scrapers.tools import check_if_usos_available
+from src.scrapers.tools import check_for_usos_errors
 
 
 def time_data_to_datetime(time_data):
@@ -24,7 +24,7 @@ def time_data_to_datetime(time_data):
 def scrape_schedule(text):
     events = []
     soup = BeautifulSoup(text, 'html.parser')
-    check_if_usos_available(soup)
+    check_for_usos_errors(soup)
     lista_dat_spotkan = soup.find('table', id='lista_dat_spotkan')
     if not lista_dat_spotkan:
         return events

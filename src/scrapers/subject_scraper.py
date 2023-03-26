@@ -1,14 +1,16 @@
 from bs4 import BeautifulSoup, Tag
 
-from src.scrapers.tools import check_if_usos_available, deconstruct_table
+from src.scrapers.tools import check_for_usos_errors, deconstruct_table
 from src.model.calendar_semester import CalendarSemester
 from src.model.subject import ClassType
 
 
 def scrape_subject(text, semester: CalendarSemester):
     soup = BeautifulSoup(text, 'html.parser')
-    check_if_usos_available(soup)
-    description_table = soup.find('usos-frame', {'style': "clear: right; width: fit-content;"}).find('table').find('tbody')
+    check_for_usos_errors(soup)
+    usos_frame = soup.find('usos-frame', {'style': "clear: right; width: fit-content;"})
+    tab = usos_frame.find('table')
+    description_table = tab.find('tbody')
     description = {}
     for row in description_table.find_all('tr'):
         cells = row.find_all('td')

@@ -1,9 +1,13 @@
 from bs4 import Tag
+from src.scrapers.exceptions import USOSError
 
 
-def check_if_usos_available(soup):
-    if soup.find('title').text.strip() == 'USOSweb tymczasowo niedostępny - USOSWEB PW':
+def check_for_usos_errors(soup):
+    title = soup.find('title').text.strip()
+    if title == 'USOSweb tymczasowo niedostępny - USOSWEB PW':
         raise RuntimeError('USOS jest aktualnie niedostępny (przerwa techniczna)')
+    if title == '503 - Strona tymczasowo niedostępna - USOSWEB PW':
+        raise USOSError('Strona jest aktualnie niedostępna (bład 503)')
 
 
 def deconstruct_table(table: Tag):
