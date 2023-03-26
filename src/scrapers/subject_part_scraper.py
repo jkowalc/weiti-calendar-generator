@@ -1,11 +1,11 @@
 from bs4 import BeautifulSoup
 
-from src.scrapers.tools import check_if_usos_available
+from src.scrapers.tools import check_for_usos_errors
 
 
 def scrape_subject_part(text):
     soup = BeautifulSoup(text, 'html.parser')
-    check_if_usos_available(soup)
+    check_for_usos_errors(soup)
     group_table = soup.find_all('table', {'class': 'grey'})[1]
     groups = group_table.find_all('tr')[1:]
     for group in groups:
