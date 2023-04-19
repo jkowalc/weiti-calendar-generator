@@ -22,7 +22,12 @@ def get_topic(topics, class_type, group, i):
         if isinstance(topics_per_class, list):
             return topics_per_class[i]
         else:
-            return topics_per_class[group][i]
+            topic = None
+            if topics_per_class.get('default') is not None:
+                topic = topics_per_class['default'][i]
+            if topics_per_class.get(group) is not None:
+                topic = topics_per_class[group][i]
+            return topic
     except KeyError:
         return None
     except IndexError:

@@ -78,16 +78,28 @@
         ]
     },
     "103A-INxxx-ISP-WMM": {
-        "LABORATORIUM": [
-          "Analiza widmowa sygnałów dyskretnych",
-          "Filtracja obrazu cyfrowego",
-          "Statystyczne właściwości obrazów",
-          "Śledzenie obiektów",
-          "Filtracja, efekty dźwiękowe",
-          "Strumieniowanie danych multimedialnych",
-          "Sygnał mowy",
-          "Grafika komputerowa"
-        ],
+        "LABORATORIUM": {
+          "default": [
+            "Analiza widmowa sygnałów dyskretnych (lab1)",
+            "Filtracja obrazu cyfrowego (lab4)",
+            "Statystyczne właściwości obrazów (lab5)",
+            "Strumieniowanie danych multimedialnych (lab6)",
+            "Sygnał mowy (lab2)",
+            "Śledzenie obrazów (lab7)",
+            "Filtracja, efekty dźwiękowe (lab3)",
+            "Grafika komputerowa (lab8)"
+          ],
+          "104": [
+            "Analiza widmowa sygnałów dyskretnych (lab1)",
+            "Filtracja obrazu cyfrowego (lab4)",
+            "Statystyczne właściwości obrazów (lab5)",
+            "Sygnał mowy (lab2)",
+            "Strumieniowanie danych multimedialnych (lab6)",
+            "Śledzenie obrazów (lab7)",
+            "Filtracja, efekty dźwiękowe (lab3)",
+            "Grafika komputerowa (lab8)"
+          ]
+        },
         "WYKLAD": [
           "Sygnały cz. 1",
           "Sygnały cz. 2",

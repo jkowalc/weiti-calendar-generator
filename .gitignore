@@ -132,3 +132,4 @@ dmypy.json
 out.ics
 
 stubs/
+calendar.ics
