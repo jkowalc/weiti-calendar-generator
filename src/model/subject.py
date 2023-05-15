@@ -2,6 +2,8 @@ import enum
 from dataclasses import dataclass
 from typing import Any, Dict
 
+SUBJECT_CODE_REGEX = r'^[a-zA-Z0-9]{4}-[a-zA-Z0-9]{5}-[a-zA-Z0-9]{3}-[a-zA-Z0-9]*$'
+
 
 class ClassType(enum.Enum):
     CWICZENIA = "Ćw"
