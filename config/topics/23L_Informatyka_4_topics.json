@@ -120,10 +120,10 @@
           "DZWK Synteza mowy",
           "DZWK Filtracja, synteza, kompresja",
           "DZWK Dźwięk przestrzenny",
-          "DZWK",
-          "GRFK Reprezentacje obiektów i przekształcenia",
-          "GRFK",
-          "GRFK Eliminacja powierzchni, cieniowanie"
+          "DZWK Dźwięk przestrzenny 2",
+          "GRFK Wstęp",
+          "GRFK Potok graficzny",
+          "GRFK Generowanie grafiki"
         ]
     },
     "103B-INxxx-ISP-BSS": {
