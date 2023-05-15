@@ -10,6 +10,7 @@ from src.web.tools import retry_if_network_error
 def load_subject(url, calendar_semester) -> Subject:
     full_code, simple_code, name, classes_schedule = retry_if_network_error(map_single_url, url,
                                                                             scrape_subject, calendar_semester)
+    print("Ładuję przedmiot: ", full_code)
     subject_parts = {}
     subject_parts_info = retry_if_network_error(map_multiple_urls, classes_schedule, scrape_subject_part)
     for class_type, subject_part_info in subject_parts_info.items():
