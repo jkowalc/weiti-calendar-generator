@@ -1,7 +1,6 @@
 from ics import Calendar
 
 from src.additional_info.load_info import load_whitelists, load_topics
-from src.model.calendar_semester import CalendarSemester
 from src.model.user_choice import UserChoice
 from src.ui.add_choice_subjects import add_choice_subjects
 from src.ui.add_model_plan_subjects import add_model_plan_subjects
@@ -16,15 +15,19 @@ def main():
     calendar_semester = choice.semester if choice.semester else select_calendar_semester()
     whitelists = load_whitelists(calendar_semester)
     topics = load_topics(calendar_semester)
-    if choice:
+    if choice.has_subjects():
+        print("Ładuję wybór z pliku .user_choice")
         add_choice_subjects(cal, calendar_semester, whitelists, topics, choice)
         add_new_subjects(cal, calendar_semester, whitelists, topics, choice)
     else:
+        print("Tworzę nowy wybór")
         add_model_plan_subjects(cal, calendar_semester, whitelists, topics, choice)
         add_new_subjects(cal, calendar_semester, whitelists, topics, choice)
     choice.semester = calendar_semester
+    print("Plik calendar.ics został wygenerowany")
     with open('../calendar.ics', 'w') as fp:
         fp.writelines(cal.serialize_iter())
+    print("Wybór zapisano do pliku .user_choice")
     save_choice(choice)
 
 
