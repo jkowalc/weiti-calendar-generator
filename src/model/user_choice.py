@@ -1,5 +1,3 @@
-import dataclasses
-
 from src.model.calendar_semester import CalendarSemester
 from src.model.subject import ClassType
 

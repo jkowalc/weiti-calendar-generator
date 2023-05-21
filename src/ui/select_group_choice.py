@@ -9,7 +9,6 @@ def select_group_choice(subject: Subject) -> dict:
         if len(groups) > 1:
             print(f"Przedmiot {subject.full_code} ma więcej niż jedną grupę dla typu zajęć {class_type.name}.")
             simplified = simplify_groups(groups)
-            group_name = ""
             if not simplified:
                 print("Wybierz jedną z poniższych grup:")
                 for i, group in enumerate(groups):

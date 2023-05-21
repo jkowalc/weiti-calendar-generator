@@ -3,6 +3,7 @@ import re
 from src.model.subject import SUBJECT_CODE_REGEX
 
 
+# noinspection HttpUrlsUsage
 def parse_subj_input(inp: str):
     inp = inp.strip()
     if inp.startswith('https://') or inp.startswith('http://'):
