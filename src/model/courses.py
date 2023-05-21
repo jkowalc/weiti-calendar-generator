@@ -33,6 +33,7 @@ class Course(Enum):
     def get_url(self):
         return COURSE_URLS[self.value]
 
-    def get_max_semesters(course):
+    # noinspection PyMethodMayBeStatic
+    def get_max_semesters(self):
         """ For future changes """
         return 7

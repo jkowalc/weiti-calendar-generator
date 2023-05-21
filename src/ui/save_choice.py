@@ -1,7 +1,6 @@
 import json
 from pathlib import Path
 
-from src.model.subject import ClassType
 from src.model.user_choice import UserChoice
 
 SAVE_PATH = Path(".user_choice")

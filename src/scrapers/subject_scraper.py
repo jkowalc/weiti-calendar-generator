@@ -32,6 +32,7 @@ def scrape_subject(text, semester: CalendarSemester):
         title = title[:title.index('\"')]
         if title == semester.get_full_name():
             deconstructed: Tag = deconstruct_table(sem.find('table'))
+            # noinspection PyUnresolvedReferences
             for type in deconstructed['Typ zajęć:'].find_all('div', {'style': 'margin: 5px 0;'}):
                 type_text = type.text.split(',')[0].strip().upper().replace('Ł', 'L').replace('Ć', 'C').replace('Ś', 'S').replace('Ż', 'Z').replace('Ź', 'Z')
                 type_obj = ClassType[type_text]

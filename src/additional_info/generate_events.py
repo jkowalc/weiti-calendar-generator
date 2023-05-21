@@ -1,5 +1,3 @@
-import json
-
 from ics import Event
 
 from src.additional_info.filter_schedule import filter_conflicts

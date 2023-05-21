@@ -1,7 +1,7 @@
 from src.additional_info.load_info import load_whitelists
-from src.additional_info.tools import parse_date, parse_schedule_item
+from src.additional_info.tools import parse_schedule_item
 from src.model.calendar_semester import CalendarSemester
-from src.model.subject import Subject, ClassType
+from src.model.subject import Subject
 
 
 def filter_schedule(schedule: list, whitelist: list):

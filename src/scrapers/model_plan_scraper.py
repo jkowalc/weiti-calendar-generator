@@ -15,6 +15,7 @@ def scrape_model_plan(text, course: Course, semester: int):
         .find(attrs={'summary': course.get_summary_attr()}) \
         .findAll(lambda tag: tag.parent.name != 'i', href=lambda url: url and re.compile("pokazPrzedmiot").search(url))
 
+    # noinspection PyUnresolvedReferences
     return [
         subject['href'] for subject in subjects
         if len(list(x for x in subject.parent.previous_siblings if x.name == 'td')) == semester
