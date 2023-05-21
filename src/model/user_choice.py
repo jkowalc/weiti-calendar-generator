@@ -34,3 +34,6 @@ class UserChoice:
         if subject in self.subjects:
             pass  # maybe raise error?
         self.subjects[subject] = choice
+
+    def has_subjects(self):
+        return len(self.subjects) > 0
